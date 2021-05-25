@@ -44,6 +44,16 @@ class FrontController extends Controller
         return view('front.category', ['products' => $products, 'category' => $category, 'productsAmount' => $productsAmount]);
     }
 
+    public function showProductsByDiscount()
+    {
+
+        $products = Product::discount()->paginate(5);
+
+        $productsAmount = count($products);
+
+        return view('front.discount', ['products' => $products, 'productsAmount' => $productsAmount]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

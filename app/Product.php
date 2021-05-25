@@ -14,6 +14,10 @@ class Product extends Model
 
     public $timestamps = false;
 
+    public function scopeDiscount($query) {
+        return $query->where('discount', false);
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

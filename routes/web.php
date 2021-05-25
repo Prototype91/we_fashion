@@ -14,6 +14,9 @@
 // Page d'accueil
 Route::get('/', 'FrontController@index');
 
+// Page par Soldes
+Route::get('discount', 'FrontController@showProductsByDiscount');
+
 // Route pour afficher un article
 Route::get('product/{id}', 'FrontController@show')->where(['id' => '[0-9]+']);
 

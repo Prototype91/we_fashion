@@ -4,11 +4,15 @@
 <div class="results">
     <h1>{{$productsAmount}} résultat(s)</h1>
 </div>
-
+<div class="all">
+    <h2>Article(s) :</h2>
+</div>
 <div class="list-group">
     @forelse($products as $product)
     <div class="card">
-        <img src="">
+        <div class="img-ctn">
+            <img src="https://content.asos-media.com/-/media/images/articles/men/2019/02/22-fri/how-asos-does-new-season-denim/mw-asos-style-feed-staff-style-denim-01.jpg?h=1100&w=870&la=fr-FR&hash=7B8220F6CF8523ADAC864F06AF84411B">
+        </div>
         <div class="container">
             <h4> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>
             <p>{{$product->description}}</p>
@@ -19,7 +23,7 @@
         </div>
     </div>
     @empty
-    <p style="text-align: center">Désolé aucun article à afficher...</p>
+    <p class="empty">Désolé, aucun article à afficher...</p>
     @endforelse
 </div>
 @endsection

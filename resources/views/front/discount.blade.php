@@ -5,8 +5,8 @@
     {{$products->links()}}
     <h1>{{$productsAmount}} résultat(s)</h1>
 </div>
-<div class="category">
-    <h2>Article(s) pour {{$category->gender === 'female' ? 'Femmes' : 'Hommes'}} :</h2>
+<div class="discount">
+    <h2>Article(s) soldé(s) :</h2>
 </div>
 <div class="list-group">
     @forelse($products as $product)

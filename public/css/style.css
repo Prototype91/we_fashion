@@ -4,6 +4,7 @@ nav {
   border: solid black 1px;
   width: 80%;
   margin: 0 auto;
+  margin-top: 30px;
 }
 
 nav ul {
@@ -32,33 +33,55 @@ nav ul li .logo {
 /* ARTICLES */
 
 .list-group {
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: space-between;
-    
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
 }
 
 .card {
-    width: 30%;
-    min-width: 220px;
-    border: solid black 1px;
-    margin-bottom: 20px;
+  width: 30%;
+  padding: 10px;
+  min-width: 220px;
+  border: solid black 1px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-ctn {
+  text-align: center;
 }
 
 .card .container {
   width: 100%;
 }
 
+.card img {
+  width: 50%;
+}
+
+.category,
+.discount,
+.all {
+  text-align: center;
+  padding: 20px;
+}
+
+.empty {
+  text-align: center;
+}
+
 /* FOOTER */
 
 footer {
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin: 0 auto;
-    border: solid black 1px;
-    margin-bottom: 30px;
-    padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+  border: solid black 1px;
+  margin-bottom: 30px;
+  padding: 20px;
 }
