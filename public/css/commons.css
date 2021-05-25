@@ -1,16 +1,25 @@
 body {
   background-color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* RESPONSIVE */
 
-@media (max-width: 674px) {
+@media (max-width: 1040px) {
 
   /* NAV */
+  
   nav ul {
     flex-direction: column;
     text-align: center;
+  }
+
+  nav ul li a {
+    margin: 0;
+  }
+
+  .logo-auth {
+    margin-right: 0!important;
   }
 
   /* FOOTER */
@@ -43,7 +52,8 @@ body {
     text-align: center;
   }
 
-  .details-img, .add-to-cart {
+  .details-img,
+  .add-to-cart {
     width: 100%;
   }
 }

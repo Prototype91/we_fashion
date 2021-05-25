@@ -14,6 +14,7 @@
     <link href="{{asset('css/articles.css')}}" rel="stylesheet">
     <link href="{{asset('css/details.css')}}" rel="stylesheet">
     <link href="{{asset('css/commons.css')}}" rel="stylesheet">
+    <link href="{{asset('css/admin.index.css')}}" rel="stylesheet">
 </head>
 
 <body>

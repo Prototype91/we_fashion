@@ -1,0 +1,120 @@
+/* BACK ADMIN */
+
+/* BUTTONS */
+
+.add {
+    margin-bottom: 30px;
+    background-color: #0275d8;
+}
+
+.edit {
+    background-color: #f0ad4e;
+}
+
+.delete {
+    background-color: #d9534f;
+}
+
+.add, .delete, .edit {
+    padding: 8px;
+    display: inline-block;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    border: none;
+  }
+
+  .add:hover, .edit:hover, .delete:hover {
+      color: white;
+      text-decoration: none;
+  }
+
+  /* TABLE */
+  
+  .table-ctn {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .table-ctn .published button {
+    width: 100px;
+  }
+  
+  .table-ctn button {
+    padding: 0;
+    outline: none;
+  }
+
+  .table-ctn h1 {
+      margin-bottom: 30px;
+  }
+  
+  .table-ctn th {
+    text-align: center;
+  }
+  
+  table {
+    border: 1px solid rgb(209, 205, 205);
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table tr {
+    
+    border: 1px solid rgb(228, 225, 225);
+    padding: 7px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+  
+  @media (max-width: 1040px) {
+    table {
+      border: 0;
+    }
+    
+    table thead {
+      border: none;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    table td {
+      border-bottom: 1px solid rgb(228, 228, 228);
+      display: block;
+      font-size: 15px;
+      text-align: right;
+    }
+    
+    table td::before {
+      content: attr(data-label);
+      float: left;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }

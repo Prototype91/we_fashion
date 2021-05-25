@@ -22,3 +22,10 @@ nav {
   nav ul li .logo {
     color: #66eb9a;
   }
+
+  .logo-auth {
+    margin: auto 0;
+    margin-right: 30px;
+    color: #66eb9a;
+    font-size: 20px;
+  }
