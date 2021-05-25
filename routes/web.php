@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Page d'accueil
+Route::get('/', 'FrontController@index');
