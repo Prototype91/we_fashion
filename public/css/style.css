@@ -1,8 +1,51 @@
-nav ul li a {
-    font-size: 20px;
-    margin-right: 30px;
-}
+/* NAV */
 
 nav {
-    border: solid black 1px;
+  border: solid black 1px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 20px 0;
+}
+
+nav ul li a {
+  font-size: 20px;
+  margin-right: 30px;
+}
+
+nav ul li .logo {
+  color: #66eb9a;
+}
+
+/* RESULTS NUMBER */
+
+.results {
+  width: 80%;
+  margin: 0 auto;
+  text-align: right;
+}
+
+/* ARTICLES */
+
+.list-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.list-group-item {
+  padding: 20px;
+  width: 20%;
+  margin-bottom: 20px;
+  min-width: 150px;
+}
+
+.card .container {
+  width: 100%;
 }
