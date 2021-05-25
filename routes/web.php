@@ -11,6 +11,9 @@
 |
 */
 
+// routes sécurisées
+Route::resource('admin/product', 'ProductController')->middleware('auth');
+
 // Page d'accueil
 Route::get('/', 'FrontController@index');
 
@@ -22,3 +25,7 @@ Route::get('product/{id}', 'FrontController@show')->where(['id' => '[0-9]+']);
 
 // Page par Genre
 Route::get('category/{id}', 'FrontController@showProductsByCategory')->where(['id' => '[0-9]+']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
