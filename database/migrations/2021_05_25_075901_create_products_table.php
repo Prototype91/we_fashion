@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->text('description')->nullable();
-            $table->float('price');
-            $table->enum('size', ['XS', 'S', 'M', 'L', 'XL']);
+            $table->float('price', 5, 2);
+            $table->enum('size', ['XS', 'S', 'M', 'L', 'XL'])->default('S');
             $table->boolean('published')->default(false);
             $table->boolean('discount')->default(false);
             $table->string('ref', 16);
