@@ -13,3 +13,6 @@
 
 // Page d'accueil
 Route::get('/', 'FrontController@index');
+
+// Page par Genre
+Route::get('category/{id}', 'FrontController@showProductsByCategory')->where(['id' => '[0-9]+']);

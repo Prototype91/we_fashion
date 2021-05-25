@@ -2,11 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
+
+    public function __construct()
+    {
+        // méthode pour injecter des données à une vue partielle 
+        view()->composer('partials.menu', function ($view) {
+            $categories = Category::pluck('gender', 'id')->all(); // on récupère un tableau associatif ['id' => 1]
+            $view->with('categories', $categories); // on passe les données à la vue
+        });
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +28,21 @@ class FrontController extends Controller
     {
         $products = Product::all();
 
-        return view('front.index', ['products' => $products]);
+        $productsAmount = count($products);
+
+        return view('front.index', ['products' => $products, 'productsAmount' => $productsAmount]);
+    }
+
+    public function showProductsByCategory(int $id) {
+        $category = Category::find($id);
+
+        $products = $category->products()->paginate(5);
+
+        $productsAmount = count($products);
+
+        // dd($products);
+
+        return view('front.category', ['products' => $products, 'category' => $category, 'productsAmount' => $productsAmount]);
     }
 
     /**

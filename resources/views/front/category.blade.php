@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="results">
+    {{$products->links()}}
     <h1>{{$productsAmount}} résultat(s)</h1>
 </div>
 <ul class="list-group">
@@ -10,7 +11,7 @@
         <div class="card">
             <img src="">
             <div class="container">
-                <h4> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>
+                <h4>{{$product->name}}</h4>
                 <p>{{$product->description}}</p>
                 <p>Genre : {{$product->category->gender === 'female' ? 'Femme' : 'Homme'}}</p>
                 <p>{{$product->price}} €</p>
