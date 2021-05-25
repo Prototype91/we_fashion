@@ -1,10 +1,16 @@
+body {
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
 /* NAV */
 
 nav {
-  border: solid black 1px;
   width: 80%;
   margin: 0 auto;
   margin-top: 30px;
+  border-radius: 15px;
+  padding: 5px;
 }
 
 nav ul {
@@ -44,11 +50,9 @@ nav ul li .logo {
   width: 30%;
   padding: 10px;
   min-width: 220px;
-  border: solid black 1px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .img-ctn {
@@ -60,14 +64,15 @@ nav ul li .logo {
 }
 
 .card img {
-  width: 50%;
+  width: 100%;
+  border-radius: 15px;
 }
 
 .category,
 .discount,
 .all {
   text-align: center;
-  padding: 20px;
+  margin-bottom: 40px;
 }
 
 .empty {
@@ -78,10 +83,32 @@ nav ul li .logo {
 
 footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 80%;
   margin: 0 auto;
-  border: solid black 1px;
   margin-bottom: 30px;
-  padding: 20px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 674px) {
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .list-group,
+  .card {
+    width: 100%;
+  }
+
+  .results {
+    text-align: center;
+  }
 }
