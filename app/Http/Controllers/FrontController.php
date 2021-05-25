@@ -33,7 +33,8 @@ class FrontController extends Controller
         return view('front.index', ['products' => $products, 'productsAmount' => $productsAmount]);
     }
 
-    public function showProductsByCategory(int $id) {
+    public function showProductsByCategory(int $id)
+    {
         $category = Category::find($id);
 
         $products = $category->products()->paginate(5);
@@ -72,9 +73,10 @@ class FrontController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        $product = Product::find($id);
+        return view('front.show', ['product' => $product]);
     }
 
     /**

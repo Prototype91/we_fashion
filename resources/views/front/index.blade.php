@@ -4,23 +4,22 @@
 <div class="results">
     <h1>{{$productsAmount}} résultat(s)</h1>
 </div>
-<ul class="list-group">
+
+<div class="list-group">
     @forelse($products as $product)
-    <li class="list-group-item">
-        <div class="card">
-            <img src="">
-            <div class="container">
-                <h4> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>
-                <p>{{$product->description}}</p>
-                <p>Genre : {{$product->category->gender === 'female' ? 'Femme' : 'Homme'}}</p>
-                <p>{{$product->price}} €</p>
-                <p>Référence : {{$product->ref}}</p>
-                <p>Soldes : {{$product->discount === 0 ? 'Non' : 'Oui'}}</p>
-            </div>
+    <div class="card">
+        <img src="">
+        <div class="container">
+            <h4> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>
+            <p>{{$product->description}}</p>
+            <p>Genre : {{$product->category->gender === 'female' ? 'Femme' : 'Homme'}}</p>
+            <p>{{$product->price}} €</p>
+            <p>Référence : {{$product->ref}}</p>
+            <p>Soldes : {{$product->discount === 0 ? 'Non' : 'Oui'}}</p>
         </div>
-    </li>
+    </div>
     @empty
-    <li style="text-align: center">Désolé aucun article à afficher...</li>
+    <p style="text-align: center">Désolé aucun article à afficher...</p>
     @endforelse
-</ul>
+</div>
 @endsection
