@@ -12,6 +12,8 @@ class Product extends Model
         'name', 'description', 'price', 'ref', 'category_id'
     ];
 
+    public $timestamps = false;
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

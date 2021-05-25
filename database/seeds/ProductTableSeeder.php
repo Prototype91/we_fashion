@@ -11,6 +11,20 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        App\Category::create([
+            'gender' => 'male'
+        ]);
+        App\Category::create([
+            'gender' => 'female'
+        ]);
+
+        factory(App\Product::class, 20)->create()->each(function ($product) {
+
+            $category = App\Category::find(rand(1, 2));
+
+            $product->category()->associate($category);
+
+            $product->save(); // il faut sauvegarder l'association pour faire persister en base de données
+        });
     }
 }
