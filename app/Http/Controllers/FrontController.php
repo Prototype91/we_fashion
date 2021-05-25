@@ -41,8 +41,6 @@ class FrontController extends Controller
 
         $productsAmount = count($products);
 
-        // dd($products);
-
         return view('front.category', ['products' => $products, 'category' => $category, 'productsAmount' => $productsAmount]);
     }
 

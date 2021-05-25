@@ -50,3 +50,15 @@ nav ul li .logo {
 .card .container {
   width: 100%;
 }
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+    border: solid black 1px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
