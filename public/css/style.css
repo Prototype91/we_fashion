@@ -79,6 +79,36 @@ nav ul li .logo {
   text-align: center;
 }
 
+/* DETAILS */
+
+.details-ctn {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.cart-ctn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-ctn form select {
+  margin-bottom: 20px;
+  width: 50px;
+}
+
+.details-img img {
+  width: 80%;
+}
+
+.details-img button {
+  display: block;
+}
+
+.description p {
+  margin-top: 30px;
+  font-size: 25px;
+}
+
 /* FOOTER */
 
 footer {
@@ -92,10 +122,14 @@ footer {
 /* RESPONSIVE */
 
 @media (max-width: 674px) {
+
+  /* NAV */
   nav ul {
     flex-direction: column;
     text-align: center;
   }
+
+  /* FOOTER */
 
   footer {
     flex-direction: column;
@@ -103,12 +137,25 @@ footer {
     text-align: center;
   }
 
+  /* ARTICLES */
+
   .list-group,
   .card {
     width: 100%;
   }
 
   .results {
+    text-align: center;
+  }
+
+  /* DETAILS */
+
+  .cart-ctn {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .description {
     text-align: center;
   }
 }
