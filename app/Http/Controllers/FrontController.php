@@ -37,7 +37,7 @@ class FrontController extends Controller
     {
         $category = Category::find($id);
 
-        $products = $category->products()->paginate(5);
+        $products = $category->products()->paginate(6);
 
         $productsAmount = count($products);
 
@@ -47,7 +47,7 @@ class FrontController extends Controller
     public function showProductsByDiscount()
     {
 
-        $products = Product::discount()->paginate(5);
+        $products = Product::discount()->paginate(6);
 
         $productsAmount = count($products);
 

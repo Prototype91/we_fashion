@@ -1,0 +1,33 @@
+/* DETAILS */
+
+.details-ctn {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .cart-ctn {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .details-ctn form select {
+    margin-bottom: 20px;
+    width: 50px;
+  }
+
+  .details-img, .add-to-cart {
+    width: 50%;
+  }
+  
+  .details-img img {
+    width: 80%;
+  }
+  
+  .details-img button {
+    display: block;
+  }
+  
+  .description p {
+    margin-top: 30px;
+    font-size: 25px;
+  }

@@ -9,7 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/navigation.css')}}" rel="stylesheet">
+    <link href="{{asset('css/footer.css')}}" rel="stylesheet">
+    <link href="{{asset('css/articles.css')}}" rel="stylesheet">
+    <link href="{{asset('css/details.css')}}" rel="stylesheet">
+    <link href="{{asset('css/commons.css')}}" rel="stylesheet">
 </head>
 
 <body>
