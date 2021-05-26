@@ -41,6 +41,10 @@ body {
     margin-right: 0!important;
   }
 
+  .logo, .logo-auth {
+    margin-left: 0!important;
+  }
+
   /* FOOTER */
 
   footer {

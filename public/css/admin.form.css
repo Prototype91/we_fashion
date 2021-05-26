@@ -1,17 +1,18 @@
 /* FORM */
 
 .form-ctn {
-    text-align: center;
+  text-align: center;
 }
 
 .form-ctn div {
-    margin-top: 22px;
+  margin-top: 22px;
 }
 
 .picture-input {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .edit-form-btn {
-    margin-top: 22px; text-align: center;
+  margin-top: 22px;
+  text-align: center;
 }

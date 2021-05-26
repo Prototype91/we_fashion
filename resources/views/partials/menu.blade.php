@@ -25,16 +25,16 @@
         <li><a href="{{ route('category.index') }}">Catégories</a></li>
         @endif
         @if(Route::is('product.*') || Route::is('category.*'))
-        <li><a href="/">Retour</a></li>
+        <li><a href="/">Site</a></li>
         @else
-        <li><a href="{{url('/admin/product')}}">Dashboard</a></li>
+        <li><a href="{{url('/admin/product')}}">Administration</a></li>
         @endif
         @endif
         <li>
             <a href="{{ route('logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();
             ">
-                Logout
+                Déconnexion
             </a>
         </li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -50,7 +50,7 @@
         <li>Aucune catégorie pour l'instant</li>
         @endforelse
         @endif
-        <li><a href="{{route('login')}}">Login</a></li>
+        <li><a href="{{route('login')}}">Connexion</a></li>
         @endif
     </ul>
 </nav>

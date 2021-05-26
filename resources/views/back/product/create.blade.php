@@ -3,7 +3,7 @@
 @section('content')
 <h1 style="text-align: center;">Ajouter un Article : </h1>
 <div class="form-ctn">
-    <form action="{{route('product.store', $categories)}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <input type="hidden" value="{{$ref}}" name="ref">
         <div>
@@ -21,9 +21,14 @@
         <div>
             <label for="category">Catégorie :</label>
             <select id="category" name="category_id">
+                @if(count($categories))
                 @foreach($categories as $id => $gender)
                 <option value="{{$id}}">{{$gender}}</option>
                 @endforeach
+                @else
+                <option value="1">Homme</option>
+                <option value="2">Femme</option>
+                @endif
             </select>
         </div>
         <div>

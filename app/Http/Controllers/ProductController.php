@@ -43,16 +43,14 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request, Category $categories)
+    public function store(StoreProductRequest $request)
     {
         $product = Product::create($request->all());
 
          // image
          $image = $request->file('picture');
 
-         $genderId = $request->category_id;
-
-         // dd($categories->id);
+         // dd($request->all());
 
          if(!empty($image)) {
             $link = $request->file('picture')->store('/males');
