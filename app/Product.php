@@ -15,7 +15,7 @@ class Product extends Model
     public $timestamps = false;
 
     public function scopeDiscount($query) {
-        return $query->where('discount', false);
+        return $query->where('discount', true);
     }
 
     public function category(): BelongsTo

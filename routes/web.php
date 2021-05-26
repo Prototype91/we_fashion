@@ -12,7 +12,7 @@
 */
 
 // routes sécurisées
-Route::resource('admin/product', 'ProductController')->middleware('auth');
+// Route::resource('admin/product', 'ProductController')->middleware('auth');
 
 // Page d'accueil
 Route::get('/', 'FrontController@index');
@@ -29,3 +29,7 @@ Route::get('category/{id}', 'FrontController@showProductsByCategory')->where(['i
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(["auth", "checkElevation"])->group(function() {
+    Route::resource('admin/product', 'ProductController');
+});

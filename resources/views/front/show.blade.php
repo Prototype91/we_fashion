@@ -10,6 +10,7 @@
             <h2>{{$product->name}}</h2>
             <p>Référence : {{$product->ref}}</p>
             <p>Prix TTC : {{$product->price}} €</p>
+            <p>Taille(s) disponibles(s) : {{$product->size}}</p>
             <form action="">
                 <label for="cart">Ajouter :</label>
                 <select id="cart">
