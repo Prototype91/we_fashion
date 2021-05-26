@@ -3,20 +3,20 @@
 @section('content')
 <h1 style="text-align: center;">Ajouter un Article : </h1>
 <div class="form-ctn">
-    <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('product.store', $categories)}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <input type="hidden" value="{{$ref}}" name="ref">
         <div>
             <label for="name">Nom :</label> <br>
-            <input type="text" name="name" value="{{old('name')}}" id="name" placeholder="Nom de l'article">
+            <input required type="text" name="name" value="{{old('name')}}" id="name" placeholder="Nom de l'article">
         </div>
         <div>
             <label for="price">Prix :</label> <br>
-            <input type="number" min="0" max="99999" step="0.01" name="price" value="{{old('price')}}" id="price" placeholder="Prix de l'article">
+            <input required type="number" min="0" max="99999" step="0.01" name="price" value="{{old('price')}}" id="price" placeholder="Prix de l'article">
         </div>
         <div>
             <label for="description">Description :</label> <br>
-            <textarea type="text" name="description"></textarea>
+            <textarea required type="text" name="description"></textarea>
         </div>
         <div>
             <label for="category">Catégorie :</label>
@@ -29,7 +29,7 @@
         <div>
             <h2>Status</h2>
             <input type="radio" name="published" value="1">Publié<br>
-            <input type="radio" name="published" value="0">Non-Publié<br>
+            <input type="radio" name="published" value="0" checked>Non-Publié<br>
         </div>
         <div>
             <h2>Soldes</h2>

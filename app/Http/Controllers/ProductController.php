@@ -43,9 +43,25 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(StoreProductRequest $request, Category $categories)
     {
-        Product::create($request->all());
+        $product = Product::create($request->all());
+
+         // image
+         $image = $request->file('picture');
+
+         $genderId = $request->category_id;
+
+         // dd($categories->id);
+
+         if(!empty($image)) {
+            $link = $request->file('picture')->store('/males');
+            // mettre à jour la table picture pour le lien vers l'image dans la base de données
+            $product->picture()->create([
+                'link' => $link,
+                'product_id' => $request->title_image ?? $request->title
+            ]);
+        }
 
         return redirect()->route('product.index');
     }
