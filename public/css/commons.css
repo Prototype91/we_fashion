@@ -3,6 +3,11 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.empty {
+  text-align: center;
+  font-size: 25px;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 1040px) {

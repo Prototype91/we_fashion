@@ -6,7 +6,7 @@
     <h1>{{$productsAmount}} résultat(s)</h1>
 </div>
 <div class="discount">
-    <h2>Article(s) soldé(s) :</h2>
+    <h2>Article(s) Soldé(s) :</h2>
 </div>
 <div class="list-group">
     @forelse($products as $product)

@@ -30,7 +30,7 @@
                     <p>Non-publié</p>
                     @endif
                 </td>
-                <td data-label="Édition"><a class="edit" href="/">Éditer</a></td>
+                <td data-label="Édition"><a class="edit" href="{{route('product.edit', $product->id)}}">Éditer</a></td>
                 <td data-label="Supprimer">
                     <form class="delete-form" method="POST" action="{{route('product.destroy', $product->id)}}">
                         {{ method_field('DELETE') }}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class ProductController extends Controller
 
         $productsAmount = count($products);
 
-        return view('back.index', ['products' => $products, 'productsAmount' => $productsAmount]);
+        return view('back.product.index', ['products' => $products, 'productsAmount' => $productsAmount]);
     }
 
     /**
@@ -59,9 +60,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        //
+        $product = Product::find($id);
+
+        return view('back.product.edit', compact('product'));
     }
 
     /**
@@ -71,9 +74,16 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductRequest $request, $id)
     {
-        //
+
+        $product = Product::find($id);
+
+        $product->update($request->all());
+
+        // dd($product);
+
+        return redirect()->route('product.index')->with('message', 'success');
     }
 
     /**

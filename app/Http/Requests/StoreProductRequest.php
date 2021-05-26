@@ -27,9 +27,10 @@ class StoreProductRequest extends FormRequest
             'name' => 'required',
             'description' => 'required|string',
             'price' => 'required|float',
-            'published.*' => 'boolean',
+            'published' => 'boolean',
             'discount' => 'boolean',
-            'size' => 'in:XS,S,M,L,XL'
+            'size' => 'in:XS,S,M,L,XL',
+            'category' => 'in:male,female'
         ];
     }
 }
