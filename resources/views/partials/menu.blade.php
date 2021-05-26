@@ -16,7 +16,6 @@
         @forelse($categories as $id => $category)
         <li><a href="{{url('category', $id)}}">{{$category}}</a></li>
         @empty
-        <li>Aucune catégorie pour l'instant</li>
         @endforelse
         @endif
         @endif

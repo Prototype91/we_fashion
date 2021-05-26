@@ -15,16 +15,20 @@
             <img src="https://content.asos-media.com/-/media/images/articles/men/2019/02/22-fri/how-asos-does-new-season-denim/mw-asos-style-feed-staff-style-denim-01.jpg?h=1100&w=870&la=fr-FR&hash=7B8220F6CF8523ADAC864F06AF84411B">
         </div>
         <div class="container">
-            <h4> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>
-            <p>Description : {{$product->description}}</p>
-            <p>Genre : {{$product->category->gender}}</p>
-            <p>Prix : {{$product->price}} €</p>
-            <p>Référence : {{$product->ref}}</p>
-            <p>Soldes : {{$product->discount === 0 ? 'Non' : 'Oui'}}</p>
+            <h4><a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>
+            <p><strong>Description : </strong>{{$product->description}}</p>
+            <p><strong>Catégorie : </strong>{{$product->category->gender}}</p>
+            <p>
+                <strong>Prix : </strong>{{$product->price}} €
+                @if($product->discount)
+                <span class="new-price"> => {{round($product->price *0.5, 2)}} €</span>
+                @endif
+            </p>
+            <p><strong>Référence : </strong>{{$product->ref}}</p>
         </div>
     </div>
     @empty
-    <p class="empty">Désolé, aucun article à afficher...</p>
+    <h2 class="empty width">Désolé, aucun article n'est soldé...</h2>
     @endforelse
 </div>
 @endsection

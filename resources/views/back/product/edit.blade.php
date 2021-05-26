@@ -9,15 +9,15 @@
         {{method_field('PUT')}}
         <div>
             <label for="name">Nom :</label> <br>
-            <input type="text" name="name" value="{{$product->name}}" id="name" placeholder="Nom de l'article">
+            <input required type="text" name="name" value="{{$product->name}}" id="name" placeholder="Nom de l'article">
         </div>
         <div>
             <label for="price">Prix :</label> <br>
-            <input type="number" min="0" max="99999" step="0.01" name="price" value="{{$product->price}}" id="price" placeholder="Prix de l'article">
+            <input required type="number" min="0" max="99999" step="0.01" name="price" value="{{$product->price}}" id="price" placeholder="Prix de l'article">
         </div>
         <div>
             <label for="description">Description :</label> <br>
-            <textarea type="text" name="description">{{$product->description}}</textarea>
+            <textarea required type="text" name="description">{{$product->description}}</textarea>
         </div>
         <div>
             <label for="category">Catégorie :</label>
@@ -49,7 +49,7 @@
         </div>
         <div>
             <h2>Photo :</h2>
-            <input class="picture-input" type="file" name="picture">
+            <input required class="picture-input" type="file" name="picture">
         </div>
         <button class="edit-form-btn edit" type="submit">Modifier l'article</button>
     </form>

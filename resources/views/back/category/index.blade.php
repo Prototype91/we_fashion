@@ -7,6 +7,7 @@
         <a class="add" href="{{route('category.create')}}">Ajouter une Catégorie</a>
     </div>
     <table>
+        @if(count($categories))
         <thead>
             <tr>
                 <th>Nom</th>
@@ -14,6 +15,7 @@
                 <th>Supprimer</th>
             </tr>
         </thead>
+        @endif
         <tbody>
             @forelse($categories as $category)
             <tr>
@@ -28,7 +30,7 @@
                 </td>
             </tr>
             @empty
-            Aucune Catégorie ...
+            <h2 class="empty">Aucune Catégorie à gérer ...</h2>
             @endforelse
         </tbody>
     </table>

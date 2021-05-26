@@ -8,25 +8,31 @@
         </div>
         <div class="add-to-cart">
             <h2>{{$product->name}}</h2>
-            <p>Référence : {{$product->ref}}</p>
-            <p>Prix TTC : {{$product->price}} €</p>
-            <p>Taille(s) disponibles(s) : {{$product->size}}</p>
-            <p>Genre : {{$product->category->gender}}</p>
+            <p><strong>Référence : </strong>{{$product->ref}}</p>
+            <p><strong>Catégorie : </strong>{{$product->category->gender}}</p>
+            <p>
+                <strong>Prix : </strong>{{$product->price}} €
+                @if($product->discount)
+                <span class="new-price"> => {{round($product->price *0.5, 2)}} €</span>
+                @endif
+            </p>
             <form action="">
-                <label for="cart">Ajouter :</label>
-                <select id="cart">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <label for="size">Taille :</label>
+                <select id="size">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
                 </select>
                 <div>
-                    <button type="submit">Acheter</button>
+                    <button class="add" type="submit">Acheter</button>
                 </div>
             </form>
         </div>
     </div>
     <div class="description">
-        <p>Description : {{$product->description}}</p>
+        <p><strong>Description : </strong>{{$product->description}}</p>
     </div>
 </div>
 

@@ -7,6 +7,7 @@
         <a class="add" href="{{route('product.create')}}">Ajouter un Article</a>
     </div>
     <table>
+        @if(count($products))
         <thead>
             <tr>
                 <th>Nom</th>
@@ -17,12 +18,18 @@
                 <th>Supprimer</th>
             </tr>
         </thead>
+        @endif
         <tbody>
             @forelse($products as $product)
             <tr>
                 <td data-label="Nom"> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></td>
                 <td data-label="Catégorie">{{$product->category->gender}}</td>
-                <td data-label="Prix">{{$product->price}} €</td>
+                <td data-label="Prix">
+                    {{$product->price}} €
+                    @if($product->discount)
+                    <span class="new-price"> => {{round($product->price *0.5, 2)}} €</span>
+                    @endif
+                </td>
                 <td data-label="État" class="published">
                     @if($product->published == true)
                     <p>Publié</p>
@@ -40,7 +47,7 @@
                 </td>
             </tr>
             @empty
-            Aucun Article ...
+            <h2 class="empty">Aucun article à gérer ...</h2>
             @endforelse
         </tbody>
     </table>

@@ -8,7 +8,7 @@
         {{method_field('PUT')}}
         <div>
             <label for="name">Nom :</label> <br>
-            <input type="text" name="gender" value="{{$category->gender}}" id="gender" placeholder="Nom de la catégorie">
+            <input required type="text" name="gender" value="{{$category->gender}}" id="gender" placeholder="Nom de la catégorie">
         </div>
         <button class="edit-form-btn edit" type="submit">Modifier la Catégorie</button>
     </form>
