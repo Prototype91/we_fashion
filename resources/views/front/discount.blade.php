@@ -17,7 +17,7 @@
         <div class="container">
             <h4> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>
             <p>Description : {{$product->description}}</p>
-            <p>Genre : {{$product->category->gender === 'female' ? 'Femme' : 'Homme'}}</p>
+            <p>Genre : {{$product->category->gender}}</p>
             <p>Prix : {{$product->price}} €</p>
             <p>Référence : {{$product->ref}}</p>
             <p>Soldes : {{$product->discount === 0 ? 'Non' : 'Oui'}}</p>

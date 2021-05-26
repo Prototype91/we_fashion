@@ -23,7 +23,7 @@
             <label for="category">Catégorie :</label>
             <select id="category" name="category_id">
                 @foreach($categories as $id => $gender)
-                <option {{ $product->category_id == $id ? 'selected' : '' }} value="{{$id}}">{{$gender == 'female' ? 'Femme' : 'Homme'}}</option>
+                <option {{ $product->category_id == $id ? 'selected' : '' }} value="{{$id}}">{{$gender}}</option>
                 @endforeach
             </select>
         </div>

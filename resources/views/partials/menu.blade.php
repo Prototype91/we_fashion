@@ -14,7 +14,7 @@
         <li><a href="{{url('/discount')}}">Soldes</a></li>
         @if(isset($categories))
         @forelse($categories as $id => $category)
-        <li><a href="{{url('category', $id)}}">{{$category === 'female' ? 'Femme' : 'Homme'}}</a></li>
+        <li><a href="{{url('category', $id)}}">{{$category}}</a></li>
         @empty
         <li>Aucune catégorie pour l'instant</li>
         @endforelse
@@ -46,7 +46,7 @@
         <li><a href="{{url('/discount')}}">Soldes</a></li>
         @if(isset($categories))
         @forelse($categories as $id => $category)
-        <li><a href="{{url('category', $id)}}">{{$category === 'female' ? 'Femme' : 'Homme'}}</a></li>
+        <li><a href="{{url('category', $id)}}">{{$category}}</a></li>
         @empty
         <li>Aucune catégorie pour l'instant</li>
         @endforelse

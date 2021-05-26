@@ -6,7 +6,7 @@
     <h1>{{$productsAmount}} résultat(s)</h1>
 </div>
 <div class="category">
-    <h2>Article(s) pour {{$category->gender === 'female' ? 'Femmes' : 'Hommes'}} :</h2>
+    <h2>Article(s) pour {{$category->gender}} :</h2>
 </div>
 <div class="list-group">
     @forelse($products as $product)
@@ -17,7 +17,7 @@
         <div class="container">
             <h4> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>
             <p>Description : {{$product->description}}</p>
-            <p>Genre : {{$product->category->gender === 'female' ? 'Femme' : 'Homme'}}</p>
+            <p>Genre : {{$product->category->gender}}</p>
             <p>Prix : {{$product->price}} €</p>
             <p>Référence : {{$product->ref}}</p>
             <p>Soldes : {{$product->discount === 0 ? 'Non' : 'Oui'}}</p>

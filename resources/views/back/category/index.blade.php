@@ -17,8 +17,8 @@
         <tbody>
             @forelse($categories as $category)
             <tr>
-                <td data-label="Nom">{{$category->gender === 'female' ? 'Femme' : 'Homme'}}</td>
-                <td data-label="Édition"><a class="edit" href="/">Éditer</a></td>
+                <td data-label="Nom">{{$category->gender}}</td>
+                <td data-label="Édition"><a class="edit" href="{{route('category.edit', $category->id)}}">Éditer</a></td>
                 <td data-label="Supprimer">
                     <form class="delete-form" method="POST" action="{{route('category.destroy', $category->id)}}">
                         {{ method_field('DELETE') }}

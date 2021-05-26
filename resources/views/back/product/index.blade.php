@@ -21,7 +21,7 @@
             @forelse($products as $product)
             <tr>
                 <td data-label="Nom"> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></td>
-                <td data-label="Catégorie">{{$product->category->gender === 'female' ? 'Femme' : 'Homme'}}</td>
+                <td data-label="Catégorie">{{$product->category->gender}}</td>
                 <td data-label="Prix">{{$product->price}} €</td>
                 <td data-label="État" class="published">
                     @if($product->published == true)

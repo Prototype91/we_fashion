@@ -11,6 +11,7 @@
             <p>Référence : {{$product->ref}}</p>
             <p>Prix TTC : {{$product->price}} €</p>
             <p>Taille(s) disponibles(s) : {{$product->size}}</p>
+            <p>Genre : {{$product->category->gender}}</p>
             <form action="">
                 <label for="cart">Ajouter :</label>
                 <select id="cart">
