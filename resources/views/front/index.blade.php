@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="results">
+    {{$products->links()}}
     <h1>{{$productsAmount}} résultat(s)</h1>
 </div>
 <div class="all">

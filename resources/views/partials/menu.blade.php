@@ -10,7 +10,7 @@
         @else
         <li><a class="logo" href="{{url('/')}}">WE FASHION</a></li>
         @endif
-        @if(Route::is('product.*') === false)
+        @if(Route::is('product.*') === false && Route::is('category.*') === false)
         <li><a href="{{url('/discount')}}">Soldes</a></li>
         @if(isset($categories))
         @forelse($categories as $id => $category)
@@ -21,11 +21,11 @@
         @endif
         @endif
         @if($isAdmin)
-        @if(Route::is('product.*'))
+        @if(Route::is('product.*') || Route::is('category.*'))
         <li><a href="{{url('/admin/product')}}">Produits</a></li>
-        <li><a href="{{url('/')}}">Catégories</a></li>
+        <li><a href="{{ route('category.index') }}">Catégories</a></li>
         @endif
-        @if(Route::is('product.*'))
+        @if(Route::is('product.*') || Route::is('category.*'))
         <li><a href="/">Retour</a></li>
         @else
         <li><a href="{{url('/admin/product')}}">Dashboard</a></li>

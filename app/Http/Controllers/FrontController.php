@@ -27,7 +27,7 @@ class FrontController extends Controller
 
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate();
 
         $productsAmount = count($products);
 
