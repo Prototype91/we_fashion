@@ -1,23 +1,57 @@
 <nav>
     <ul>
-        @if($isAdmin)
-        <li><a href="/">Dashboard</a></li>
-        @endif
         @if(Auth::check())
+        @if($isAdmin)
+        @if(Route::is('product.*'))
         <li class="logo-auth">WE FASHION</li>
-        <li><a href="{{url('/admin/product')}}">Produits</a></li>
-        <li><a href="{{url('/')}}">Catégories</a></li>
-        <li class="back"><a href="{{url('/')}}">Retour</a></li>
         @else
         <li><a class="logo" href="{{url('/')}}">WE FASHION</a></li>
-        <li><a href="{{url('/discount')}}">Soldes</a></li>
         @endif
+        @else
+        <li><a class="logo" href="{{url('/')}}">WE FASHION</a></li>
+        @endif
+        @if(Route::is('product.*') === false)
+        <li><a href="{{url('/discount')}}">Soldes</a></li>
         @if(isset($categories))
         @forelse($categories as $id => $category)
         <li><a href="{{url('category', $id)}}">{{$category === 'female' ? 'Femme' : 'Homme'}}</a></li>
         @empty
         <li>Aucune catégorie pour l'instant</li>
         @endforelse
+        @endif
+        @endif
+        @if($isAdmin)
+        @if(Route::is('product.*'))
+        <li><a href="{{url('/admin/product')}}">Produits</a></li>
+        <li><a href="{{url('/')}}">Catégories</a></li>
+        @endif
+        @if(Route::is('product.*'))
+        <li><a href="/">Retour</a></li>
+        @else
+        <li><a href="{{url('/admin/product')}}">Dashboard</a></li>
+        @endif
+        @endif
+        <li>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();
+            ">
+                Logout
+            </a>
+        </li>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
+        @else
+        <li><a class="logo" href="{{url('/')}}">WE FASHION</a></li>
+        <li><a href="{{url('/discount')}}">Soldes</a></li>
+        @if(isset($categories))
+        @forelse($categories as $id => $category)
+        <li><a href="{{url('category', $id)}}">{{$category === 'female' ? 'Femme' : 'Homme'}}</a></li>
+        @empty
+        <li>Aucune catégorie pour l'instant</li>
+        @endforelse
+        @endif
+        <li><a href="{{route('login')}}">Login</a></li>
         @endif
     </ul>
 </nav>
