@@ -4,7 +4,7 @@
 <div class="table-ctn">
     <div>
         <h1>Bienvenue sur votre espace Admin Catégories !</h1>
-        <a class="add" href="/">Ajouter une Catégorie</a>
+        <a class="add" href="{{route('category.create')}}">Ajouter une Catégorie</a>
     </div>
     <table>
         <thead>
