@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
@@ -64,7 +65,9 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return view('back.product.edit', compact('product'));
+        $categories = Category::pluck('gender', 'id')->all();
+
+        return view('back.product.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -74,16 +77,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProductRequest $request, $id)
+    public function update(StoreProductRequest $request, int $id)
     {
-
         $product = Product::find($id);
+
+        // dd($request->all());
 
         $product->update($request->all());
 
-        // dd($product);
-
-        return redirect()->route('product.index')->with('message', 'success');
+        return redirect()->route('product.index');
     }
 
     /**

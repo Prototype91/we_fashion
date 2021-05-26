@@ -9,12 +9,23 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'description', 'price', 'ref', 'category_id'
+        'name', 'description', 'price', 'ref', 'category_id', 'published', 'discount', 'size'
     ];
+
+    public function setDiscountAttribute(int $value)
+    {
+        $this->attributes['discount'] = $value === 1 ? true : false;
+    }
+
+    public function setPublishedAttribute(int $value)
+    {
+        $this->attributes['published'] = $value === 1 ? true : false;
+    }
 
     public $timestamps = false;
 
-    public function scopeDiscount($query) {
+    public function scopeDiscount($query)
+    {
         return $query->where('discount', true);
     }
 
