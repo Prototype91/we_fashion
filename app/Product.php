@@ -12,14 +12,14 @@ class Product extends Model
         'name', 'description', 'price', 'ref', 'category_id', 'published', 'discount', 'size'
     ];
 
-    public function setDiscountAttribute(int $value)
+    public function setDiscountAttribute($value)
     {
-        $this->attributes['discount'] = $value === 1 ? true : false;
+        $this->attributes['discount'] = $value == '1' ? true : false;
     }
 
-    public function setPublishedAttribute(int $value)
+    public function setPublishedAttribute($value)
     {
-        $this->attributes['published'] = $value === 1 ? true : false;
+        $this->attributes['published'] = $value == '1' ? true : false;
     }
 
     public $timestamps = false;
