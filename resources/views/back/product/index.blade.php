@@ -4,7 +4,7 @@
 <div class="table-ctn">
     <div>
         <h1>Bienvenue sur votre espace Admin !</h1>
-        <a class="add" href="/">Ajouter un Article</a>
+        <a class="add" href="{{route('product.create')}}">Ajouter un Article</a>
     </div>
     <table>
         <thead>

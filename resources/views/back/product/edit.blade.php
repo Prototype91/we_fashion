@@ -10,17 +10,14 @@
         <div>
             <label for="name">Nom :</label> <br>
             <input type="text" name="name" value="{{$product->name}}" id="name" placeholder="Nom de l'article">
-            @if($errors->has('name')) <span class="error">{{$errors->first('name')}}</span>@endif
         </div>
         <div>
             <label for="price">Prix :</label> <br>
-            <input type="text" name="price" value="{{$product->price}}" id="price" placeholder="Prix de l'article">
-            @if($errors->has('price')) <span class="error">{{$errors->first('price')}}</span>@endif
+            <input type="number" min="0" max="99999" step="0.01" name="price" value="{{$product->price}}" id="price" placeholder="Prix de l'article">
         </div>
         <div>
             <label for="description">Description :</label> <br>
             <textarea type="text" name="description">{{$product->description}}</textarea>
-            @if($errors->has('description')) <span class="error bg-warning text-warning">{{$errors->first('description')}}</span> @endif
         </div>
         <div>
             <label for="category">Catégorie :</label>
@@ -38,7 +35,7 @@
         <div>
             <h2>Soldes</h2>
             <input type="radio" @if($product->discount == true) checked @endif name="discount" value="1" checked>En Soldes<br>
-            <input type="radio" @if($product->discount == false) checked @endif name="discount" value="0}">Non-Soldé<br>
+            <input type="radio" @if($product->discount == false) checked @endif name="discount" value="0">Non-Soldé<br>
         </div>
         <div>
             <label for="size">Taille :</label>
@@ -53,7 +50,6 @@
         <div>
             <h2>Photo :</h2>
             <input class="picture-input" type="file" name="picture">
-            @if($errors->has('picture')) <span class="delete">{{$errors->first('picture')}}</span> @endif
         </div>
         <button class="edit-form-btn edit" type="submit">Modifier l'article</button>
     </form>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Product;
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -30,7 +30,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('gender', 'id')->all();
+
+        $ref = Str::random(16);
+
+        return view('back.product.create', ['categories' => $categories, 'ref' => $ref]);
     }
 
     /**
@@ -39,9 +43,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        //
+        Product::create($request->all());
+
+        return redirect()->route('product.index');
     }
 
     /**
