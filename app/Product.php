@@ -22,6 +22,10 @@ class Product extends Model
         $this->attributes['published'] = $value == '1' ? true : false;
     }
 
+    public function setCategoryIdAttribute($value) {
+        $this->attributes['category_id'] = $value == 0 ? null : $value;
+    }
+
     public $timestamps = false;
 
     public function scopeDiscount($query)

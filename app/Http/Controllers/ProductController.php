@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Product;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -144,6 +145,25 @@ class ProductController extends Controller
         $data['discount'] = $request->input('discount');
 
         $product->update($data);
+
+        $image = $request->file('picture');
+
+        if (!empty($image)) {
+
+            $categoryFolder = Category::find($data['category_id'])->gender;
+            $link = $image->store('/'.$categoryFolder);
+
+            // suppression de l'image si elle existe 
+            if ($product->picture) {
+                Storage::disk('local')->delete($product->picture->link); // supprimer physiquement l'image
+                $product->picture()->delete(); // supprimer l'information en base de données
+            }
+
+            $product->picture()->create([
+                'link' => $link,
+                'product_id' => $request->title_image ?? $request->title
+            ]);
+        }
 
         return redirect()->route('product.index');
     }

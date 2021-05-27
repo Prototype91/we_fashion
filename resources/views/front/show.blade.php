@@ -13,7 +13,9 @@
         <div class="add-to-cart">
             <h2>{{$product->name}}</h2>
             <p><strong>Référence : </strong>{{$product->ref}}</p>
+            @if($product->category)
             <p><strong>Catégorie : </strong>{{$product->category->gender}}</p>
+            @endif
             <p>
                 <strong>Prix : </strong>{{$product->price}} €
                 @if($product->discount)

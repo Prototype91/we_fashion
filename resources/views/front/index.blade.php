@@ -22,7 +22,9 @@
         <div class="container">
             <h4><a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>
             <p><strong>Description : </strong>{{$product->description}}</p>
+            @if($product->category)
             <p><strong>Catégorie : </strong>{{$product->category->gender}}</p>
+            @endif
             <p>
                 <strong>Prix : </strong>{{$product->price}} €
                 @if($product->discount)
