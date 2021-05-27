@@ -2,6 +2,8 @@
 
 use Faker\Generator as Faker;
 
+
+// Product Factory
 $factory->define(App\Product::class, function (Faker $faker) {
     return [
         'name' => $faker->name(),

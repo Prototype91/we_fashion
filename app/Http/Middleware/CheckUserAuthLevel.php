@@ -15,6 +15,7 @@ class CheckUserAuthLevel
      */
     public function handle($request, Closure $next)
     {
+        // Redirection if the user is not admin
         if ($request->user()->elevation !== "admin") {
             return redirect('/');
         }

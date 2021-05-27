@@ -12,13 +12,15 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
+        // Creation of Categories
         App\Category::create([
             'gender' => 'Homme'
         ]);
         App\Category::create([
             'gender' => 'Femme'
         ]);
-
+        
+        // Creation of products
         factory(App\Product::class, 20)->create()->each(function ($product) {
 
             $category = App\Category::find(rand(1, 2));
