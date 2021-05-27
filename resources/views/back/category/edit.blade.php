@@ -2,7 +2,7 @@
 
 @section('content')
 <h1 style="text-align: center;">Modifier la Catégorie : </h1>
-<div class="form-ctn">
+<div class="form-ctn edit-category">
     <form action="{{route('category.update', $category->id)}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{method_field('PUT')}}

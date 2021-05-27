@@ -23,8 +23,10 @@
             @forelse($products as $product)
             <tr>
                 <td data-label="Nom"> <a href="{{url('product', $product->id)}}">{{$product->name}}</a></td>
-                @if($product->gender)
+                @if($product->category)
                 <td data-label="Catégorie">{{$product->category->gender}}</td>
+                @else
+                <td data-label="Catégorie">N/A</td>
                 @endif
                 <td data-label="Prix">
                     {{$product->price}} €

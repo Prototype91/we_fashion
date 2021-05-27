@@ -2,7 +2,7 @@
 
 @section('content')
 <h1 style="text-align: center;">Créer une Catégorie : </h1>
-<div class="form-ctn">
+<div class="form-ctn delete-category">
     <form action="{{route('category.store')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div>

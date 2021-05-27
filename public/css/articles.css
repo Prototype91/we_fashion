@@ -31,6 +31,7 @@
 .img-ctn {
   text-align: center;
   height: 350px;
+  overflow: hidden;
 }
 
 .card .container {

@@ -1,7 +1,37 @@
 /* FORM */
 
 .form-ctn {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  -webkit-box-shadow: 5px 4px 11px 0px rgb(0 0 0 / 49%);
+  box-shadow: 5px 4px 11px 0px rgb(0 0 0 / 49%);
+  background-color: lavenderblush;
+}
+
+.delete-category,
+.edit-category {
   text-align: center;
+}
+
+.form-ctn input[type="radio"] {
+  margin-right: 10px;
+}
+
+.form-ctn input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+.flex {
+  width: 50%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.align-end {
+  text-align: right;
 }
 
 .form-ctn div {
@@ -15,4 +45,20 @@
 .edit-form-btn {
   margin-top: 22px;
   text-align: center;
+}
+
+.btn-ctn-validate {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 964px) {
+  .flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .align-end {
+    text-align: center;
+  }
 }

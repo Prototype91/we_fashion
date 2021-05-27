@@ -184,8 +184,10 @@ class ProductController extends Controller
 
             // Deletion of the picture if it exists
             if ($product->picture) {
-                Storage::disk('local')->delete($product->picture->link); // supprimer physiquement l'image
-                $product->picture()->delete(); // supprimer l'information en base de données
+                // Deletes the picture
+                Storage::disk('local')->delete($product->picture->link);
+                // Deletes from database
+                $product->picture()->delete();
             }
             
             // We update the picture
