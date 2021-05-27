@@ -1,8 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-<h1 style="text-align: center;">Modifier l'Article : </h1>
-<h3 style="text-align: center;">Référence produit : {{$product->ref}}</h3>
+<div class="head">
+    <h1 style="text-align: center;">Modifier l'Article : </h1>
+    <h3 style="text-align: center;">Référence produit : {{$product->ref}}</h3>
+</div>
 <div class="form-ctn">
     <form action="{{route('product.update', $product->id)}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
@@ -11,17 +13,17 @@
             <section>
                 <div>
                     <label for="name">Nom :</label> <br>
-                    <input required type="text" name="name" value="{{$product->name}}" id="name" placeholder="Nom de l'article">
+                    <input class="form-control" required type="text" name="name" value="{{$product->name}}" id="name" placeholder="Nom de l'article">
                 </div>
                 <div>
                     <label for="price">Prix :</label> <br>
-                    <input required type="number" min="0" max="99999" step="0.01" name="price" value="{{$product->price}}" id="price" placeholder="Prix de l'article">
+                    <input class="form-control" required type="number" min="0" max="9999" step="0.01" name="price" value="{{$product->price}}" id="price" placeholder="Prix de l'article">
                 </div>
             </section>
             <section>
                 <div>
                     <label for="description">Description :</label> <br>
-                    <textarea required type="text" name="description">{{$product->description}}</textarea>
+                    <textarea class="form-control" required type="text" name="description">{{$product->description}}</textarea>
                 </div>
                 <div>
                     <label for="category">Catégorie :</label>
@@ -62,9 +64,9 @@
                         <input type="checkbox" id="xl" name="size[]" value="XL">
                     </fieldset>
                 </div>
-                <div>
+                <div class="picture-input-ctn">
                     <h2>Photo :</h2>
-                    <input class="picture-input" type="file" name="picture">
+                    <input class="picture-input form-control" type="file" name="picture" id="picture"/>
                 </div>
             </section>
         </div>

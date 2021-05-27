@@ -10,21 +10,21 @@
             <section>
                 <div>
                     <label for="name">Nom :</label> <br>
-                    <input required type="text" name="name" value="{{old('name')}}" id="name" placeholder="Nom de l'article">
+                    <input class="form-control" required type="text" name="name" value="{{old('name')}}" id="name" placeholder="Nom de l'article">
                 </div>
                 <div>
                     <label for="price">Prix :</label> <br>
-                    <input required type="number" min="0" max="99999" step="0.01" name="price" value="{{old('price')}}" id="price" placeholder="Prix de l'article">
+                    <input class="form-control" required type="number" min="0" max="9999" step="0.01" name="price" value="{{old('price')}}" id="price" placeholder="Prix de l'article">
                 </div>
             </section>
             <section>
                 <div>
                     <label for="description">Description :</label> <br>
-                    <textarea required type="text" name="description"></textarea>
+                    <textarea class="form-control" required type="text" name="description"></textarea>
                 </div>
                 <div>
                     <label for="category">Catégorie :</label>
-                    <select id="category" name="category_id">
+                    <select class="form-control" id="category" name="category_id">
                         @if(count($categories))
                         @foreach($categories as $id => $gender)
                         <option value="{{$id}}">{{$gender}}</option>
@@ -66,9 +66,9 @@
                         <input type="checkbox" id="xl" name="size[]" value="XL"> <br>
                     </fieldset>
                 </div>
-                <div>
+                <div class="picture-input-ctn">
                     <h2>Photo :</h2>
-                    <input class="picture-input" type="file" name="picture">
+                    <input class="picture-input form-control" type="file" name="picture" id="picture"/>
                 </div>
             </section>
         </div>

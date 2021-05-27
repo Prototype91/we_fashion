@@ -15,6 +15,8 @@
             <p><strong>Référence : </strong>{{$product->ref}}</p>
             @if($product->category)
             <p><strong>Catégorie : </strong>{{$product->category->gender}}</p>
+            @else
+            <p><strong>Catégorie : </strong>N/A</p>
             @endif
             <p>
                 <strong>Prix : </strong>{{$product->price}} €

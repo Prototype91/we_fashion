@@ -7,7 +7,7 @@
         {{ csrf_field() }}
         <div>
             <label for="name">Nom :</label> <br>
-            <input required type="text" name="gender" value="{{old('name')}}" id="gender" placeholder="Nom de la catégorie">
+            <input class="form-control" required type="text" name="gender" value="{{old('name')}}" id="gender" placeholder="Nom de la catégorie">
         </div>
         <button class="edit-form-btn edit" type="submit">Créer la Catégorie</button>
     </form>
