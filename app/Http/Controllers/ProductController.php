@@ -68,17 +68,13 @@ class ProductController extends Controller
         $data['discount'] = $request->input('discount');
         $data['ref'] = $request->input('ref');
 
-
         $product = Product::create($data);
 
-        // image
         $image = $request->file('picture');
 
-        // dd($request->all());
-
         if (!empty($image)) {
-            $link = $request->file('picture')->store('/males');
-            // mettre à jour la table picture pour le lien vers l'image dans la base de données
+            $categoryFolder = Category::find($data['category_id'])->gender;
+            $link = $image->store('/'.$categoryFolder);
             $product->picture()->create([
                 'link' => $link,
                 'product_id' => $request->title_image ?? $request->title
@@ -146,7 +142,6 @@ class ProductController extends Controller
         $data['category_id'] = $request->input('category_id');
         $data['published'] = $request->input('published');
         $data['discount'] = $request->input('discount');
-        $data['picture'] = $request->input('picture');
 
         $product->update($data);
 

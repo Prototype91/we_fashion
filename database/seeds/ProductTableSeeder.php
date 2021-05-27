@@ -25,7 +25,7 @@ class ProductTableSeeder extends Seeder
 
             $product->category()->associate($category);
 
-            $files = Storage::allFiles($category->gender == "Homme" ? "males" : "females");
+            $files = Storage::allFiles($category->gender == "Homme" ? "Homme" : "Femme");
 
             $fileIndex = array_rand($files);
             $file = $files[$fileIndex];
