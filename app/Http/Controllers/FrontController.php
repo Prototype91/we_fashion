@@ -85,7 +85,10 @@ class FrontController extends Controller
     public function show(int $id)
     {
         $product = Product::find($id);
-        return view('front.show', ['product' => $product]);
+
+        $sizes = array_slice(explode(',', $product->size), 0);
+
+        return view('front.show', ['product' => $product, 'sizes' => $sizes]);
     }
 
     /**

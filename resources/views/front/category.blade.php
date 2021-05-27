@@ -12,7 +12,11 @@
     @forelse($products as $product)
     <div class="card">
         <div class="img-ctn">
-            <img src="https://content.asos-media.com/-/media/images/articles/men/2019/02/22-fri/how-asos-does-new-season-denim/mw-asos-style-feed-staff-style-denim-01.jpg?h=1100&w=870&la=fr-FR&hash=7B8220F6CF8523ADAC864F06AF84411B">
+            @if($product->picture->link)
+            <img src="{{asset('images/'.$product->picture->link)}}">
+            @else
+            <img src="https://assets.hermes.com/is/image/hermesedito/P_11_JOAILLERIE_CAVALIERE_1?fmt=webp&fit=wrap,0&wid=696">
+            @endif
         </div>
         <div class="container">
             <h4><a href="{{url('product', $product->id)}}">{{$product->name}}</a></h4>

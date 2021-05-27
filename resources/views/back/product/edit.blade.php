@@ -38,18 +38,23 @@
             <input type="radio" @if($product->discount == false) checked @endif name="discount" value="0">Non-Soldé<br>
         </div>
         <div>
-            <label for="size">Taille :</label>
-            <select id="size" name="size">
-                <option @if($product->size == 'XS') selected @endif value="XS">XS</option>
-                <option @if($product->size == 'S') selected @endif value="S">S</option>
-                <option @if($product->size == 'M') selected @endif value="M">M</option>
-                <option @if($product->size == 'L') selected @endif value="L">L</option>
-                <option @if($product->size == 'XL') selected @endif value="XL">XL</option>
-            </select>
+            <h3>Tailles : </h3>
+            <fieldset>
+                <label for="xs">XS</label>
+                <input type="checkbox" id="xs" name="size[]" value="XS">
+                <label for="s">S</label>
+                <input type="checkbox" id="s" name="size[]" value="S">
+                <label for="m">M</label>
+                <input type="checkbox" id="m" name="size[]" value="M">
+                <label for="l">L</label>
+                <input type="checkbox" id="l" name="size[]" value="L">
+                <label for="xl">XL</label>
+                <input type="checkbox" id="xl" name="size[]" value="XL">
+            </fieldset>
         </div>
         <div>
             <h2>Photo :</h2>
-            <input required class="picture-input" type="file" name="picture">
+            <input class="picture-input" type="file" name="picture">
         </div>
         <button class="edit-form-btn edit" type="submit">Modifier l'article</button>
     </form>

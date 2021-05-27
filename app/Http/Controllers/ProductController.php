@@ -45,14 +45,38 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $product = Product::create($request->all());
+        $sizes = $request->input('size');
 
-         // image
-         $image = $request->file('picture');
+        $sizesArray = array();
 
-         // dd($request->all());
+        if ($sizes) {
+            foreach ($sizes as $size) {
+                $sizesArray[] = $size;
+            }
 
-         if(!empty($image)) {
+            $stringSizes = implode(',', $sizesArray);
+        }
+
+        $data = [];
+
+        $data['size'] = $sizes ? $stringSizes : 'Aucune taille disponible';
+        $data['name'] = $request->input('name');
+        $data['description'] = $request->input('description');
+        $data['price'] = $request->input('price');
+        $data['category_id'] = $request->input('category_id');
+        $data['published'] = $request->input('published');
+        $data['discount'] = $request->input('discount');
+        $data['ref'] = $request->input('ref');
+
+
+        $product = Product::create($data);
+
+        // image
+        $image = $request->file('picture');
+
+        // dd($request->all());
+
+        if (!empty($image)) {
             $link = $request->file('picture')->store('/males');
             // mettre à jour la table picture pour le lien vers l'image dans la base de données
             $product->picture()->create([
@@ -101,9 +125,30 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        // dd($request->all());
+        $sizes = $request->input('size');
 
-        $product->update($request->all());
+        $sizesArray = array();
+
+        if ($sizes) {
+            foreach ($sizes as $size) {
+                $sizesArray[] = $size;
+            }
+
+            $stringSizes = implode(',', $sizesArray);
+        }
+
+        $data = [];
+
+        $data['size'] = $sizes ? $stringSizes : 'Aucune taille disponible';
+        $data['name'] = $request->input('name');
+        $data['description'] = $request->input('description');
+        $data['price'] = $request->input('price');
+        $data['category_id'] = $request->input('category_id');
+        $data['published'] = $request->input('published');
+        $data['discount'] = $request->input('discount');
+        $data['picture'] = $request->input('picture');
+
+        $product->update($data);
 
         return redirect()->route('product.index');
     }

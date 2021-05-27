@@ -8,11 +8,11 @@
   .cart-ctn {
     display: flex;
     justify-content: space-between;
+    margin-top: 50px;
   }
   
   .details-ctn form select {
     margin-bottom: 20px;
-    width: 50px;
   }
 
   .details-img, .add-to-cart {

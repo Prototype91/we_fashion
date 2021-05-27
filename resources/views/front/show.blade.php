@@ -4,7 +4,11 @@
 <div class="details-ctn">
     <div class="cart-ctn">
         <div class="details-img">
-            <img src="https://content.asos-media.com/-/media/images/articles/men/2019/02/22-fri/how-asos-does-new-season-denim/mw-asos-style-feed-staff-style-denim-01.jpg?h=1100&w=870&la=fr-FR&hash=7B8220F6CF8523ADAC864F06AF84411B">
+        @if($product->picture)
+            <img src="{{asset('images/'.$product->picture->link)}}">
+        @else
+        <img src="https://assets.hermes.com/is/image/hermesedito/P_11_JOAILLERIE_CAVALIERE_1?fmt=webp&fit=wrap,0&wid=696">
+        @endif
         </div>
         <div class="add-to-cart">
             <h2>{{$product->name}}</h2>
@@ -17,14 +21,12 @@
                 @endif
             </p>
             <form action="">
-                <label for="size">Taille :</label>
-                <select id="size">
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
+                <label for="size">Taille(s) disponible(s) :</label>
+                <select id="size" name="size">
+                @foreach($sizes as $id => $size)
+                <option value="{{$id}}">{{$size}}</option>
+                @endforeach
+            </select>
                 <div>
                     <button class="add" type="submit">Acheter</button>
                 </div>

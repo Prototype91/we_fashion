@@ -2,7 +2,7 @@
     <ul>
         @if(Auth::check())
         @if($isAdmin)
-        @if(Route::is('product.*'))
+        @if(Route::is('product.*') || Route::is('category.*'))
         <li class="logo-auth">WE FASHION</li>
         @else
         <li><a class="logo" href="{{url('/')}}">WE FASHION</a></li>

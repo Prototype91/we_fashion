@@ -43,13 +43,18 @@
         </div>
         <div>
             <label for="size">Taille :</label>
-            <select id="size" name="size">
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-            </select>
+            <fieldset>
+                <label for="xs">XS</label>
+                <input type="checkbox" id="xs" name="size[]" value="XS">
+                <label for="s">S</label>
+                <input type="checkbox" id="s" name="size[]" value="S">
+                <label for="m">M</label>
+                <input type="checkbox" id="m" name="size[]" value="M">
+                <label for="l">L</label>
+                <input type="checkbox" id="l" name="size[]" value="L">
+                <label for="xl">XL</label>
+                <input type="checkbox" id="xl" name="size[]" value="XL">
+            </fieldset>
         </div>
         <div>
             <h2>Photo :</h2>
