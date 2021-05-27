@@ -15,12 +15,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
+        // Gets products with the pagination
         $products = Product::paginate(15);
 
+        // Gets the amount of products
         $productsAmount = count($products);
 
+        // Redirection
         return view('back.product.index', ['products' => $products, 'productsAmount' => $productsAmount]);
     }
 
@@ -29,12 +33,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
+        // Gets the categories
         $categories = Category::pluck('gender', 'id')->all();
 
+        // Generates a reference for the product
         $ref = Str::random(16);
 
+        // redirection
         return view('back.product.create', ['categories' => $categories, 'ref' => $ref]);
     }
 
@@ -44,22 +52,29 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(StoreProductRequest $request)
     {
+        // Gets the sizes from inputs
         $sizes = $request->input('size');
 
+        // Array to push all sizes inside
         $sizesArray = array();
 
+        // If there are sizes
         if ($sizes) {
             foreach ($sizes as $size) {
+                // We push the size into the array
                 $sizesArray[] = $size;
             }
-
+            // We convert the array of sizes into a string
             $stringSizes = implode(',', $sizesArray);
         }
 
+        // Datas that we will use to create the product
         $data = [];
 
+        // We set the datas
         $data['size'] = $sizes ? $stringSizes : 'Aucune taille disponible';
         $data['name'] = $request->input('name');
         $data['description'] = $request->input('description');
@@ -69,19 +84,28 @@ class ProductController extends Controller
         $data['discount'] = $request->input('discount');
         $data['ref'] = $request->input('ref');
 
+        // We create the product
         $product = Product::create($data);
 
+        // Gets the picture
         $image = $request->file('picture');
 
+        // If there is a picture
         if (!empty($image)) {
+            // We get the category name for the folder
             $categoryFolder = Category::find($data['category_id'])->gender;
-            $link = $image->store('/'.$categoryFolder);
+
+            // We store the picture into the good folder
+            $link = $image->store('/' . $categoryFolder);
+
+            // We create the picture
             $product->picture()->create([
                 'link' => $link,
                 'product_id' => $request->title_image ?? $request->title
             ]);
         }
 
+        // Redirection
         return redirect()->route('product.index');
     }
 
@@ -91,12 +115,16 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit(int $id)
     {
+        // Gets the product to edit
         $product = Product::find($id);
 
+        // Gets the categories
         $categories = Category::pluck('gender', 'id')->all();
 
+        // Redirection
         return view('back.product.edit', ['product' => $product, 'categories' => $categories]);
     }
 
@@ -107,24 +135,33 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(StoreProductRequest $request, int $id)
     {
+        // Gets the product to update
         $product = Product::find($id);
 
+        // Gets the sizes from inputs
         $sizes = $request->input('size');
 
+        // Array to push all sizes inside
         $sizesArray = array();
 
+        // If there are sizes
         if ($sizes) {
             foreach ($sizes as $size) {
+                // We push the size into the array
                 $sizesArray[] = $size;
             }
 
+            // We convert the array of sizes into a string
             $stringSizes = implode(',', $sizesArray);
         }
 
+        // Datas that we will use to update the product
         $data = [];
 
+        // We set the datas
         $data['size'] = $sizes ? $stringSizes : 'Aucune taille disponible';
         $data['name'] = $request->input('name');
         $data['description'] = $request->input('description');
@@ -133,27 +170,32 @@ class ProductController extends Controller
         $data['published'] = $request->input('published');
         $data['discount'] = $request->input('discount');
 
+        // We update the datas of the product
         $product->update($data);
 
         $image = $request->file('picture');
 
+        // If there is a picture
         if (!empty($image)) {
-
+            // We get the category name for the folder
             $categoryFolder = Category::find($data['category_id'])->gender;
-            $link = $image->store('/'.$categoryFolder);
+            // We store the picture into the good folder
+            $link = $image->store('/' . $categoryFolder);
 
-            // suppression de l'image si elle existe 
+            // Deletion of the picture if it exists
             if ($product->picture) {
                 Storage::disk('local')->delete($product->picture->link); // supprimer physiquement l'image
                 $product->picture()->delete(); // supprimer l'information en base de données
             }
-
+            
+            // We update the picture
             $product->picture()->create([
                 'link' => $link,
                 'product_id' => $request->title_image ?? $request->title
             ]);
         }
 
+        // Redirection
         return redirect()->route('product.index');
     }
 
@@ -166,10 +208,13 @@ class ProductController extends Controller
 
     public function destroy(int $id)
     {
+        // Gets the product to delete
         $product = Product::find($id);
 
+        // Deletes the product
         $product->delete();
 
+        // Redirection
         return redirect()->route('product.index');
     }
 }

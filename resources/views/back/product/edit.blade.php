@@ -41,13 +41,13 @@
             <h3>Tailles : </h3>
             <fieldset>
                 <label for="xs">XS</label>
-                <input type="checkbox" id="xs" name="size[]" value="XS">
+                <input type="checkbox" id="xs" name="size[]" value="XS"> <br>
                 <label for="s">S</label>
-                <input type="checkbox" id="s" name="size[]" value="S">
+                <input type="checkbox" id="s" name="size[]" value="S"> <br>
                 <label for="m">M</label>
-                <input type="checkbox" id="m" name="size[]" value="M">
+                <input type="checkbox" id="m" name="size[]" value="M"> <br>
                 <label for="l">L</label>
-                <input type="checkbox" id="l" name="size[]" value="L">
+                <input type="checkbox" id="l" name="size[]" value="L"> <br>
                 <label for="xl">XL</label>
                 <input type="checkbox" id="xl" name="size[]" value="XL">
             </fieldset>
