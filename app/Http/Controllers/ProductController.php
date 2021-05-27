@@ -100,8 +100,7 @@ class ProductController extends Controller
 
             // We create the picture
             $product->picture()->create([
-                'link' => $link,
-                'product_id' => $request->title_image ?? $request->title
+                'link' => $link
             ]);
         }
 
@@ -184,16 +183,13 @@ class ProductController extends Controller
 
             // Deletion of the picture if it exists
             if ($product->picture) {
-                // Deletes the picture
-                Storage::disk('local')->delete($product->picture->link);
                 // Deletes from database
                 $product->picture()->delete();
             }
             
             // We update the picture
             $product->picture()->create([
-                'link' => $link,
-                'product_id' => $request->title_image ?? $request->title
+                'link' => $link
             ]);
         }
 
