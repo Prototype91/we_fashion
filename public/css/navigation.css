@@ -34,7 +34,26 @@ nav ul li .logo {
 }
 
 nav ul li .logo:hover {
-  color: #66eb9a;;
+  color: #66eb9a;
+}
+
+nav .category-link {
+  margin-right: 0;
+  text-align: center;
+}
+
+.dropdown button {
+  margin-right: 30px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 20px;
+  padding: 0;
+}
+
+.empty-cat {
+  text-align: center;
+  color: red;
 }
 
 .logo-auth {

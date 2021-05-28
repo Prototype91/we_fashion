@@ -13,10 +13,20 @@
         @if(Route::is('product.*') === false && Route::is('category.*') === false)
         <li><a href="{{url('/discount')}}">Soldes</a></li>
         @if(isset($categories))
-        @forelse($categories as $id => $category)
-        <li><a href="{{url('category', $id)}}">{{$category}}</a></li>
-        @empty
-        @endforelse
+        <li>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Catégories
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                @forelse($categories as $id => $category)
+                <li><a class="category-link" href="{{url('category', $id)}}">{{$category}}</a></li>
+                @empty
+                <li class="empty-cat">Aucune catégorie pour l'instant</li>
+                @endforelse
+            </ul>
+        </div>
+        </li>
         @endif
         @endif
         @if($isAdmin)
@@ -44,11 +54,20 @@
         <li><a class="logo" href="{{url('/')}}">WE FASHION</a></li>
         <li><a href="{{url('/discount')}}">Soldes</a></li>
         @if(isset($categories))
-        @forelse($categories as $id => $category)
-        <li><a href="{{url('category', $id)}}">{{$category}}</a></li>
-        @empty
-        <li>Aucune catégorie pour l'instant</li>
-        @endforelse
+        <li>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Catégories
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                @forelse($categories as $id => $category)
+                <li><a class="category-link" href="{{url('category', $id)}}">{{$category}}</a></li>
+                @empty
+                <li class="empty-cat">Aucune catégorie pour l'instant</li>
+                @endforelse
+            </ul>
+        </div>
+        </li>
         @endif
         <li><a href="{{route('login')}}">Connexion</a></li>
         @endif

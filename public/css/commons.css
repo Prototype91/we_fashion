@@ -1,5 +1,5 @@
 body {
-  background-color: #F6F1EB;
+  background-color: #f6f1eb;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -25,9 +25,8 @@ body {
 /* RESPONSIVE */
 
 @media (max-width: 1040px) {
-
   /* NAV */
-  
+
   nav ul {
     flex-direction: column;
     text-align: center;
@@ -38,11 +37,21 @@ body {
   }
 
   .logo-auth {
-    margin-right: 0!important;
+    margin-right: 0 !important;
   }
 
-  .logo, .logo-auth {
-    margin-left: 0!important;
+  .logo,
+  .logo-auth {
+    margin-left: 0 !important;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown button {
+    margin-right: 0;
   }
 
   /* FOOTER */
@@ -55,9 +64,14 @@ body {
 
   /* ARTICLES */
 
-  .list-group,
-  .card {
+  .list-group {
     width: 100%;
+  }
+
+  .card {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
   }
 
   .results {
