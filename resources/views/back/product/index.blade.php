@@ -34,11 +34,11 @@
                     <span class="new-price"> => {{round($product->price *0.5, 2)}} €</span>
                     @endif
                 </td>
-                <td data-label="État" class="published">
-                    @if($product->published == true)
-                    <p>Publié</p>
+                <td data-label="État" class="state">
+                    @if($product->discount == true)
+                    <p>Soldé</p>
                     @else
-                    <p>Non-publié</p>
+                    <p>Non-Soldé</p>
                     @endif
                 </td>
                 <td data-label="Édition"><a class="edit" href="{{route('product.edit', $product->id)}}">Éditer</a></td>

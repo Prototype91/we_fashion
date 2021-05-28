@@ -43,7 +43,7 @@
   flex-direction: column;
 }
 
-.table-ctn .published button {
+.table-ctn .state button {
   width: 100px;
 }
 
