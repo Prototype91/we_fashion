@@ -4,11 +4,11 @@
 <div class="details-ctn">
     <div class="cart-ctn">
         <div class="details-img">
-        @if($product->picture)
+            @if($product->picture)
             <img src="{{asset('images/'.$product->picture->link)}}">
-        @else
-        <img src="https://assets.hermes.com/is/image/hermesedito/P_11_JOAILLERIE_CAVALIERE_1?fmt=webp&fit=wrap,0&wid=696">
-        @endif
+            @else
+            <img src="https://assets.hermes.com/is/image/hermesedito/P_11_JOAILLERIE_CAVALIERE_1?fmt=webp&fit=wrap,0&wid=696">
+            @endif
         </div>
         <div class="add-to-cart">
             <h2>{{$product->name}}</h2>
@@ -27,10 +27,14 @@
             <form action="">
                 <label for="size">Taille(s) disponible(s) :</label>
                 <select id="size" name="size">
-                @foreach($sizes as $id => $size)
-                <option value="{{$id}}">{{$size}}</option>
-                @endforeach
-            </select>
+                    @foreach($sizes as $id => $size)
+                    @if($size != null)
+                    <option value="{{$id}}">{{$size}}</option>
+                    @else
+                    <option value="0">Aucune Taille</option>
+                    @endif
+                    @endforeach
+                </select>
                 <div>
                     <button class="add" type="submit">Acheter</button>
                 </div>

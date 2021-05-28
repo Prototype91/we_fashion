@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name', 100);
             $table->text('description')->nullable();
             $table->float('price', 5, 2);
-            $table->string('size')->default('S');
+            $table->string('size')->default('S')->nullable();
             $table->boolean('published')->default(false);
             $table->boolean('discount')->default(false);
             $table->string('ref', 16);

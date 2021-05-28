@@ -166,7 +166,7 @@ class ProductController extends Controller
         $data = [];
 
         // We set the datas
-        $data['size'] = $sizes ? $stringSizes : 'Aucune taille disponible';
+        $data['size'] = $sizes ? $stringSizes : null;
         $data['name'] = $request->input('name');
         $data['description'] = $request->input('description');
         $data['price'] = $request->input('price');
