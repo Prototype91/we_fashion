@@ -62,6 +62,10 @@ body {
     text-align: center;
   }
 
+  footer h1 {
+    margin-top: 20px;
+  }
+
   /* ARTICLES */
 
   .list-group {

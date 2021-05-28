@@ -46,6 +46,11 @@
 
 .card .container {
   width: 100%;
+  text-align: center;
+}
+
+.card .container h4 {
+  margin-top: 20px;
 }
 
 .card img {

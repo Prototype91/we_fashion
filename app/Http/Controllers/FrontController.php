@@ -80,8 +80,6 @@ class FrontController extends Controller
         // Converts the array into string
         $sizes = array_slice(explode(',', $product->size), 0);
 
-        // dd($sizes);
-
         // Redirection
         return view('front.show', ['product' => $product, 'sizes' => $sizes]);
     }
