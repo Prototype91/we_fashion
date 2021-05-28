@@ -92,12 +92,17 @@ class ProductController extends Controller
 
         // If there is a picture
         if (!empty($image)) {
-            // We get the category name for the folder
-            $categoryFolder = Category::find($data['category_id'])->gender;
+            // If there is a category
+            if ($request->input('category_id') !== '0') {
+                // We get the category name for the folder
+                $categoryFolder = Category::find($data['category_id'])->gender;
 
-            // We store the picture into the good folder
-            $link = $image->store('/' . $categoryFolder);
-
+                // We store the picture into the good folder
+                $link = $image->store('/' . $categoryFolder);
+            } else {
+                // We store the picture into the no category folder
+                $link = $image->store('/Aucune-Catégorie');
+            }
             // We create the picture
             $product->picture()->create([
                 'link' => $link
@@ -176,17 +181,24 @@ class ProductController extends Controller
 
         // If there is a picture
         if (!empty($image)) {
-            // We get the category name for the folder
-            $categoryFolder = Category::find($data['category_id'])->gender;
-            // We store the picture into the good folder
-            $link = $image->store('/' . $categoryFolder);
+            // If there is a category
+            if ($request->input('category_id') !== '0') {
+                // We get the category name for the folder
+                $categoryFolder = Category::find($data['category_id'])->gender;
+
+                // We store the picture into the good folder
+                $link = $image->store('/' . $categoryFolder);
+            } else {
+                // We store the picture into the no category folder
+                $link = $image->store('/Aucune-Catégorie');
+            }
 
             // Deletion of the picture if it exists
             if ($product->picture) {
                 // Deletes from database
                 $product->picture()->delete();
             }
-            
+
             // We update the picture
             $product->picture()->create([
                 'link' => $link

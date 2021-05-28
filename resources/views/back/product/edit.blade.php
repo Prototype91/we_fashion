@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <label for="price">Prix :</label> <br>
-                    <input class="form-control" required type="number" min="0" max="9999" step="0.01" name="price" value="{{$product->price}}" id="price" placeholder="Prix de l'article">
+                    <input class="form-control" required type="number" min="0" max="999" step="0.01" name="price" value="{{$product->price}}" id="price" placeholder="Prix de l'article">
                 </div>
             </section>
             <section>
@@ -28,9 +28,13 @@
                 <div>
                     <label for="category">Catégorie :</label>
                     <select id="category" name="category_id">
+                    @if(count($categories))
                         @foreach($categories as $id => $gender)
                         <option {{ $product->category_id == $id ? 'selected' : '' }} value="{{$id}}">{{$gender}}</option>
                         @endforeach
+                        @else
+                        <option value="0">N/A</option>
+                        @endif
                     </select>
                 </div>
             </section>

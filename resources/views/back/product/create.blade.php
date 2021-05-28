@@ -14,7 +14,7 @@
                 </div>
                 <div>
                     <label for="price">Prix :</label> <br>
-                    <input class="form-control" required type="number" min="0" max="9999" step="0.01" name="price" value="{{old('price')}}" id="price" placeholder="Prix de l'article">
+                    <input class="form-control" required type="number" min="0" max="999" step="0.01" name="price" value="{{old('price')}}" id="price" placeholder="Prix de l'article">
                 </div>
             </section>
             <section>
@@ -30,8 +30,7 @@
                         <option value="{{$id}}">{{$gender}}</option>
                         @endforeach
                         @else
-                        <option value="1">Homme</option>
-                        <option value="2">Femme</option>
+                        <option value="0">N/A</option>
                         @endif
                     </select>
                 </div>
