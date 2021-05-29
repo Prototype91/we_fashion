@@ -1,10 +1,22 @@
 # Lecomte Dylan - We Fashion - 30/05/2021
 
+## Description
+
+We Fashion est une toute nouvelle boutique de e-commerce qui vend des vêtements homme et femme de créateurs.
+
 ## Avant-propos
 
-`npm i` pour installer toutes les dépendances
+Créer une base de donnée sur `phpMyAdmin`
 
-`php artisan migrate:refresh --seed` pour générer vos produits, users, et catégories
+`composer install` pour installer toutes les dépendances
+
+Créer un fichier `.env` à la racine, copier-coller le contenu du fichier `.env.example`
+
+Configurer le fichier `.env` avec `DB_DATABASE={{DATABASE_NAME}}`
+
+Générer une clé avec `php artisan key:generate`
+
+`php artisan migrate:refresh --seed` pour générer vos produits, users, catégories et images.
 
 `php artisan serve` pour lancer le projet en local
 
